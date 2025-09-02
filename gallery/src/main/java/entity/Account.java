@@ -9,6 +9,8 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 import enums.*;
 @Entity
 @Getter
@@ -23,7 +25,7 @@ public class Account {
 	
 	private String iban;
 	
-	private String amount;
+	private BigDecimal amount;
 
 	@Enumerated(EnumType.STRING)
 	private CurrencyType currencyType;
