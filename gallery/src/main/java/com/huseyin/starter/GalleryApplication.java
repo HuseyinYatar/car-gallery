@@ -11,6 +11,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "repository")
 @ComponentScan(basePackages = "service")
 @ComponentScan(basePackages = "security")
+@ComponentScan(basePackages = "config")
+@ComponentScan(basePackages = "handler")
+@ComponentScan(basePackages = "mapper")
+
 @SpringBootApplication
 public class GalleryApplication {
 
