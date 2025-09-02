@@ -10,7 +10,6 @@ import entity.Account;
 @Mapper(componentModel = "spring")
 public interface AccountMapping {
 
-	
 	DtoAccount dtoAccountIUtoDtoAccount(DtoAccountIU accountIU);
 	
 	@Mapping(target = "id",ignore =true)
