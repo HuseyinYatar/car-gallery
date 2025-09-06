@@ -1,5 +1,7 @@
 package entity;
 
+import java.math.BigDecimal;
+
 import enums.CarStatusType;
 import enums.CurrencyType;
 import jakarta.persistence.Column;
@@ -9,6 +11,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,24 +27,29 @@ public class Car {
 	private Long id;
 
 	@Column
+	@NotBlank
 	private String plaka;
 
+	@NotBlank
 	@Column
 	private String model;
 
+	@NotBlank
 	@Column
 	private String productionYear;
 
 	@Column
-	private String price;
-
+	private BigDecimal price;
+	
 	@Enumerated(EnumType.STRING)
 	private CurrencyType currencyType;
 
+	@NotBlank
 	@Column
 	private String damagePrice;
-
+	
 	@Enumerated(EnumType.STRING)
 	private CarStatusType carStatusType;
 
+	
 }
