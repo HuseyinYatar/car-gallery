@@ -18,6 +18,7 @@ import entity.RefreshTokenRequest;
 import entity.RestBaseControllerEntity;
 import enums.ErrorType;
 import exception.BaseException;
+import exception.ErrorMessage;
 import jakarta.validation.Valid;
 import mapper.CustomUserMapping;
 import repository.CustomUserRepository;
@@ -96,12 +97,12 @@ public class AuthenticationSerivice {
 		Optional<RefreshToken> byToken = refreshTokenRepository.findByToken(refreshTokenRequest.getToken());
 		
 		if(!byToken.isPresent())
-		throw new BaseException(ErrorType.REFRESH_TOKEN_NOT_FOUND,refreshTokenRequest.getToken());
+		throw new BaseException(new ErrorMessage(ErrorType.REFRESH_TOKEN_NOT_FOUND,refreshTokenRequest.getToken()));
 		
 		RefreshToken refreshToken = byToken.get();
 		
 		if(refreshTokenExpired(refreshToken))
-			throw new BaseException(ErrorType.REFRESH_TOKEN_EXPIRED,refreshToken.getExpiredDate().toString());
+			throw new BaseException(new ErrorMessage(ErrorType.REFRESH_TOKEN_EXPIRED,refreshToken.getExpiredDate().toString()));
 
 		
 		CustomUser customUser = refreshToken.getCustomUser();

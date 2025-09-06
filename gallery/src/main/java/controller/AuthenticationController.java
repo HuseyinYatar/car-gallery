@@ -16,7 +16,7 @@ import service.AuthenticationSerivice;
 
 @RestController
 @RequestMapping("/rest")
-public class AuthenticationController {
+public class AuthenticationController extends RestBaseController {
 
 	AuthenticationSerivice authenticationservice;
 
@@ -30,20 +30,20 @@ public class AuthenticationController {
 
 
 	@PostMapping("/register")
-	public RestBaseControllerEntity<DtoCustomUser> saveCustomUser(@RequestBody CustomUser customUser) {
-		return authenticationservice.saveCustomUser(customUser);
+	public RestBaseControllerEntity<RestBaseControllerEntity<DtoCustomUser>> saveCustomUser(@RequestBody CustomUser customUser) {
+		return ok(authenticationservice.saveCustomUser(customUser));
 	}
 	
 	@PostMapping("/login")
-	public RestBaseControllerEntity<AuthResponse> authenticateUser(@Valid @RequestBody AuthRequest authRequest)
+	public RestBaseControllerEntity<RestBaseControllerEntity<AuthResponse>> authenticateUser(@Valid @RequestBody AuthRequest authRequest)
 	{
-		return authenticationservice.authenticateUser(authRequest);
+		return ok(authenticationservice.authenticateUser(authRequest));
 	}
 	
 	@PostMapping("refresh_token")
-	public RestBaseControllerEntity<AuthResponse> validateRefreshToken(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest)
+	public RestBaseControllerEntity<RestBaseControllerEntity<AuthResponse>> validateRefreshToken(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest)
 	{
-		return authenticationservice.validateRefreshToken(refreshTokenRequest);
+		return ok(authenticationservice.validateRefreshToken(refreshTokenRequest));
 		
 	}
 
