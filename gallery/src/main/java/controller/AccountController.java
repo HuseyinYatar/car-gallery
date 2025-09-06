@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dto.DtoAccount;
 import dto.DtoAccountIU;
+import entity.RestBaseControllerEntity;
 import jakarta.validation.Valid;
 import service.AccountService;
 
 @RestController
 @RequestMapping("/rest")
-public class AccountController {
+public class AccountController  extends RestBaseController{
 
 	private final AccountService accountService;
 
@@ -22,7 +23,7 @@ public class AccountController {
 	}
 
 	@PostMapping("/save-account")
-	public DtoAccount saveAccount(@Valid @RequestBody DtoAccountIU accountIU) {
-		return accountService.saveAccount(accountIU);
+	public RestBaseControllerEntity<DtoAccount> saveAccount(@Valid @RequestBody DtoAccountIU accountIU) {
+		return ok(accountService.saveAccount(accountIU));
 	}
 }
