@@ -1,5 +1,6 @@
 package entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
@@ -17,10 +18,10 @@ public class Customer extends BaseEntity {
 	@Column
 	private String birthOfDate;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Account account;
 	
 }
