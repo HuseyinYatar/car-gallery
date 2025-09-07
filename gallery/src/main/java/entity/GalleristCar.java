@@ -1,5 +1,6 @@
 package entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,9 +20,9 @@ public class GalleristCar {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Gallerist gallerist;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Car car;
 }
