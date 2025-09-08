@@ -13,13 +13,8 @@ public class ErrorMessage {
 	private ErrorType errorType;
 
 	public String getErrorMessage() {
-		
-		if(errorType==null)
-		throw new BaseException("Error Type Cannot be null");
-		
-		return (ofStatic == null || ofStatic.trim().length() == 0) ? 
-			errorType.toString(): errorType.toString().concat(ofStatic);
-
+		return (ofStatic == null || ofStatic.trim().length() == 0) ? errorType.toString()
+				: errorType.toString().concat(ofStatic);
 	}
 
 	public ErrorMessage(ErrorType tokenNotFound) {

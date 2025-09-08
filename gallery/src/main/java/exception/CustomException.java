@@ -1,7 +1,5 @@
 package exception;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +16,6 @@ public class CustomException<T> {
 
 	private String hostName;
 
-	private Date issuedDate;
 
 	private String path;
 
