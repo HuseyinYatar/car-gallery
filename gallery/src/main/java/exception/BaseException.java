@@ -1,7 +1,5 @@
 package exception;
 
-import enums.ErrorType;
-
 public class BaseException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
@@ -11,14 +9,6 @@ public class BaseException extends RuntimeException {
 	}
 
 
-	public BaseException(String string) {
-		// TODO Auto-generated constructor stub
-	}
-
-
-	public BaseException(ErrorType refreshTokenNotFound, String token) {
-		// TODO Auto-generated constructor stub
-	}
 
 
 }
