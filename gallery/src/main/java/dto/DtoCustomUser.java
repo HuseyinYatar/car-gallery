@@ -3,9 +3,11 @@ package dto;
 import java.util.Set;
 
 import enums.Roles;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class DtoCustomUser {
 	
 	private String username;
