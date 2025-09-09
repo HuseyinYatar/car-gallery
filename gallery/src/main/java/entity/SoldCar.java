@@ -19,7 +19,7 @@ import lombok.Data;
 		}
 		)
 
-public class SaledCar {
+public class SoldCar {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
